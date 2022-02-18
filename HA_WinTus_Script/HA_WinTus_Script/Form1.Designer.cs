@@ -28,30 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.WorkspacePanel = new System.Windows.Forms.Panel();
             this.ClearAll = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnResize = new System.Windows.Forms.Button();
+            this.bntMini = new System.Windows.Forms.Button();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.brnCommands = new System.Windows.Forms.Button();
             this.btnLoops = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.btnResize = new System.Windows.Forms.Button();
-            this.bntMini = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
-            this.panel2.SuspendLayout();
+            this.WorkspacePanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel2
+            // WorkspacePanel
             // 
-            this.panel2.Controls.Add(this.ClearAll);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(153, 80);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(954, 477);
-            this.panel2.TabIndex = 5;
+            this.WorkspacePanel.Controls.Add(this.ClearAll);
+            this.WorkspacePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.WorkspacePanel.Location = new System.Drawing.Point(153, 80);
+            this.WorkspacePanel.Name = "WorkspacePanel";
+            this.WorkspacePanel.Size = new System.Drawing.Size(954, 477);
+            this.WorkspacePanel.TabIndex = 5;
             // 
             // ClearAll
             // 
@@ -62,6 +62,7 @@
             this.ClearAll.TabIndex = 0;
             this.ClearAll.Text = "Clear all";
             this.ClearAll.UseVisualStyleBackColor = true;
+            this.ClearAll.Click += new System.EventHandler(this.ClearAll_Click);
             // 
             // panel1
             // 
@@ -74,6 +75,47 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(954, 80);
             this.panel1.TabIndex = 4;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Image = global::HA_WinTus_Script.Properties.Resources.close_button;
+            this.btnClose.Location = new System.Drawing.Point(917, 3);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(34, 34);
+            this.btnClose.TabIndex = 2;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click_1);
+            // 
+            // btnResize
+            // 
+            this.btnResize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnResize.FlatAppearance.BorderSize = 0;
+            this.btnResize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnResize.Image = global::HA_WinTus_Script.Properties.Resources.maximize;
+            this.btnResize.Location = new System.Drawing.Point(877, 3);
+            this.btnResize.Name = "btnResize";
+            this.btnResize.Size = new System.Drawing.Size(34, 34);
+            this.btnResize.TabIndex = 1;
+            this.btnResize.UseVisualStyleBackColor = true;
+            this.btnResize.Click += new System.EventHandler(this.btnResize_Click);
+            // 
+            // bntMini
+            // 
+            this.bntMini.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bntMini.FlatAppearance.BorderSize = 0;
+            this.bntMini.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bntMini.ForeColor = System.Drawing.SystemColors.Control;
+            this.bntMini.Image = global::HA_WinTus_Script.Properties.Resources.minimize;
+            this.bntMini.Location = new System.Drawing.Point(837, 3);
+            this.bntMini.Name = "bntMini";
+            this.bntMini.Size = new System.Drawing.Size(34, 34);
+            this.bntMini.TabIndex = 0;
+            this.bntMini.UseVisualStyleBackColor = true;
+            this.bntMini.Click += new System.EventHandler(this.bntMini_Click);
             // 
             // panelMenu
             // 
@@ -139,46 +181,7 @@
             this.btnLoops.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLoops.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLoops.UseVisualStyleBackColor = true;
-            // 
-            // btnClose
-            // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Image = global::HA_WinTus_Script.Properties.Resources.close_button;
-            this.btnClose.Location = new System.Drawing.Point(917, 3);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(34, 34);
-            this.btnClose.TabIndex = 2;
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click_1);
-            // 
-            // btnResize
-            // 
-            this.btnResize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnResize.FlatAppearance.BorderSize = 0;
-            this.btnResize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnResize.Image = global::HA_WinTus_Script.Properties.Resources.maximize;
-            this.btnResize.Location = new System.Drawing.Point(877, 3);
-            this.btnResize.Name = "btnResize";
-            this.btnResize.Size = new System.Drawing.Size(34, 34);
-            this.btnResize.TabIndex = 1;
-            this.btnResize.UseVisualStyleBackColor = true;
-            this.btnResize.Click += new System.EventHandler(this.btnResize_Click);
-            // 
-            // bntMini
-            // 
-            this.bntMini.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bntMini.FlatAppearance.BorderSize = 0;
-            this.bntMini.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bntMini.ForeColor = System.Drawing.SystemColors.Control;
-            this.bntMini.Image = global::HA_WinTus_Script.Properties.Resources.minimize;
-            this.bntMini.Location = new System.Drawing.Point(837, 3);
-            this.bntMini.Name = "bntMini";
-            this.bntMini.Size = new System.Drawing.Size(34, 34);
-            this.bntMini.TabIndex = 0;
-            this.bntMini.UseVisualStyleBackColor = true;
-            this.bntMini.Click += new System.EventHandler(this.bntMini_Click);
+            this.btnLoops.Click += new System.EventHandler(this.btnLoops_Click);
             // 
             // panelLogo
             // 
@@ -196,13 +199,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1107, 557);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.WorkspacePanel);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelMenu);
             this.Name = "MainWindow";
             this.Text = "WinTus Script Generator";
             this.Resize += new System.EventHandler(this.MainWindow_Resize);
-            this.panel2.ResumeLayout(false);
+            this.WorkspacePanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panelMenu.ResumeLayout(false);
             this.panelMenu.PerformLayout();
@@ -212,7 +215,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel WorkspacePanel;
         private System.Windows.Forms.Button ClearAll;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnClose;

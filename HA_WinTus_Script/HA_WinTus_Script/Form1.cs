@@ -39,8 +39,6 @@ namespace HA_WinTus_Script
             base.WndProc(ref m);
         }
 
-
-
         private void bntMini_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -77,11 +75,31 @@ namespace HA_WinTus_Script
             }
         }
 
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
         private void btnClose_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
         #endregion
+
+        private void btnLoops_Click(object sender, EventArgs e)
+        {
+            WorkspacePanel.Controls.Add(new Block(new Point(10,10)));
+            WorkspacePanel.BackColor = Color.Red;
+        }
+
+        private void ClearAll_Click(object sender, EventArgs e)
+        {
+            foreach(Block block in WorkspacePanel.Controls.OfType<Block>().ToList())
+            {
+                WorkspacePanel.Controls.Remove(block);
+            }
+        }
     }
 }
