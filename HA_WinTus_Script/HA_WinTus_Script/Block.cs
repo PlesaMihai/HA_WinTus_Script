@@ -37,8 +37,32 @@ namespace HA_WinTus_Script
         }
         public virtual void AddChild() { }
         
-        public virtual void CombinePanels()
+        public virtual void CheckCollission(Block otherBlock)
         {
+            
+            if(this.CollTop != null && otherBlock.CollBot != null)
+            {
+                Rectangle thisRect = this.GetColBoxAbsPos(this.CollTop);
+                Rectangle otherRect = otherBlock.GetColBoxAbsPos(otherBlock.CollBot);
+
+                if(thisRect.IntersectsWith(otherRect))
+                {
+                    //this.CombineBlocks();
+                    this.collBoxBrush = new SolidBrush(Color.Green);
+                }
+            }
+
+            if (this.CollLeft != null && otherBlock.CollRight != null)
+            {
+                Rectangle thisRect = this.GetColBoxAbsPos(this.CollLeft);
+                Rectangle otherRect = otherBlock.GetColBoxAbsPos(otherBlock.CollRight);
+
+                if (thisRect.IntersectsWith(otherRect))
+                {
+                    //this.CombineBlocks();
+                    this.collBoxBrush = new SolidBrush(Color.Purple);
+                }
+            }
 
         }
 
@@ -75,11 +99,17 @@ namespace HA_WinTus_Script
             if (CollBot != null) gObj.FillRectangle(collBoxBrush, CollBot);
             if (CollLeft != null) gObj.FillRectangle(collBoxBrush, CollLeft);
         }
+
+        private Rectangle GetColBoxAbsPos(Rectangle tColBox)
+        {
+            Rectangle rect = new Rectangle(Point.Add(tColBox.Location, new Size(this.Left, this.Top)), tColBox.Size);
+            return rect;
+        }
         #endregion
 
         // Variables
         public static Color defaultColor = Color.Gray;
-        public static Size defaultSize = new Size(100, 300);
+        public static Size defaultSize = new Size(100, 100);
 
         public Rectangle CollTop;
         public Rectangle CollBot;

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.WorkspacePanel = new System.Windows.Forms.Panel();
             this.ClearAll = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -39,6 +40,7 @@
             this.brnCommands = new System.Windows.Forms.Button();
             this.btnLoops = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.WorkspacePanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelMenu.SuspendLayout();
@@ -194,6 +196,11 @@
             this.panelLogo.Size = new System.Drawing.Size(153, 80);
             this.panelLogo.TabIndex = 0;
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 16;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -226,6 +233,7 @@
         private System.Windows.Forms.Button brnCommands;
         private System.Windows.Forms.Button btnLoops;
         private System.Windows.Forms.Panel panelLogo;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

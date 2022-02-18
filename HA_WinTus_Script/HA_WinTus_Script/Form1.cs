@@ -19,6 +19,7 @@ namespace HA_WinTus_Script
         {
             this.DoubleBuffered = true;
             InitializeComponent();
+            timer1.Enabled = true;
         }
         #region <------------------- Window control ------------------->
 
@@ -98,6 +99,28 @@ namespace HA_WinTus_Script
             foreach(Block block in WorkspacePanel.Controls.OfType<Block>().ToList())
             {
                 WorkspacePanel.Controls.Remove(block);
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            CheckCollisions();
+        }
+
+        private void CheckCollisions()
+        {
+            foreach (Block thisBlock in WorkspacePanel.Controls.OfType<Block>().ToList())
+            {
+                if(thisBlock.movable == true)
+                {
+                    foreach (Block otherBlock in WorkspacePanel.Controls.OfType<Block>().ToList())
+                    {
+                        if(thisBlock != otherBlock && thisBlock.Bounds.IntersectsWith(otherBlock.Bounds))
+                        {
+                            thisBlock.CheckCollission(otherBlock);
+                        }
+                    }
+                }
             }
         }
     }
