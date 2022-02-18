@@ -91,7 +91,6 @@ namespace HA_WinTus_Script
         private void btnLoops_Click(object sender, EventArgs e)
         {
             WorkspacePanel.Controls.Add(new Block(new Point(10,10)));
-            WorkspacePanel.BackColor = Color.Red;
         }
 
         private void ClearAll_Click(object sender, EventArgs e)
